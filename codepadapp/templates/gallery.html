@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>University a Educational Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    {% load staticfiles %}
+<link href="{% static 'css/bootstrap.css'%}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="University Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#loginLink").click(function(e){
+                e.preventDefault();
+                $("#loginModal").modal();
+            });
+
+            {% if request.session.alert != None %}
+
+                $("#alert_info").html("{{ request.session.alert }}");
+                $("#alert_model").modal();
+
+            {% endif %}
+
+        });
+
+    function validate(){
+
+{#        if(isNaN($("#id_username").val())){#}
+{#            alert("Not number");#}
+{#        }#}
+        return true;
+    }
+    </script>
+
+
+</head>
+<body>
+<!-- banner -->
+<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+<script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+<div class="banner">
+	 <div class="header">
+			 <div class="logo">
+				 <a href="index.html"><img src="{% static 'images/logo.jpg' %}" alt=""/></a>
+			 </div>
+			 <div class="top-menu">
+				 <span class="menu"></span>
+				<ul class="navig">
+					 <li class="active"><a href="index.html">Home</a></li>
+					 
+
+				 </ul>
+			 </div>
+			  <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$("ul.navig").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+
+			 <div class="clearfix"></div>
+	 </div>
+	 <div class="slider">
+		 <div class="caption">
+			 <div class="container">
+				  <div class="callbacks_container">
+					  <ul class="rslides" id="slider">
+
+							<li> <img src="{% static 'images/7.jpg' %}" class="img-responsive" alt="">
+                            <li> <img src="{% static 'images/img13.jpg' %}" class="img-responsive" alt=""></li>
+                            <li> <img src="{% static 'images/w2.jpg' %}" class="img-responsive" alt=""></li>
+                            <li><img src="{% static 'images/11.jpg' %}" class="img-responsive" alt=""></li>
+							<li> <img src="{% static 'images/12.jpg' %}" class="img-responsive" alt=""></li>
+					  </ul>
+						<div class="clearfix"></div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+</div>
+<!---->
+
+<!---->
+<div class="footer">
+	 <div class="container">
+       <div class="copywrite">
+	        <div class="container">
+		         <p>Copyright © 2015 University. All rights reserved | Design by Django girls</p>
+	        </div>
+        </div>
+	 </div>
+</div   >
+<!---->
+
+<!---->
+
+
+
+</body>
+</html>

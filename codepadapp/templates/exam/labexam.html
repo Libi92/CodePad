@@ -1,0 +1,196 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>University a Educational Category Flat Bootstrap Responsive Website Template | About :: w3layouts</title>
+    {% load staticfiles %}
+<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+
+    <!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="University Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+ <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $(".run-button").click(function(e){
+                e.preventDefault();
+
+                if($("#programname").val() != '') {
+                    $.ajax({
+                        method: "GET",
+                        url: "/Student/exec",
+                        data: {code: $("#code").val(), name: $("#programname").val(), language: $("#language").val(),command: $("#command").val()}
+                    }).done(function (msg) {
+                        $("#output").val(msg);
+                        alert("Compiled");
+                    }).fail(function () {
+                        alert("failed");
+                    });
+                }
+                else{
+                    alert("Enter Program name");
+                }
+            });
+
+            $(".save-button").click(function(e){
+                e.preventDefault();
+
+                if($("#programname").val() != '') {
+                    $.ajax({
+                        method: "GET",
+                        url: "/Exam/saveprogram",
+                        data: {code: $("#code").val(), name: $("#programname").val(), language: $("#language").val(), question: $("#question").val(), exam: $("#exam").val()}
+                    }).done(function (msg) {
+
+                        alert(msg);
+                    }).fail(function () {
+                        alert("failed");
+                    });
+                }
+                else{
+                    alert("Enter Program name");
+                }
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<!-- banner --> 
+<div class="banner2">	  
+	 <div class="header">
+			 <div class="logo">
+				 <a href="index.html"><img src="{% static 'images/logo.jpg' %}" alt=""/></a>
+			 </div>
+			 <div class="top-menu">
+				 <span class="menu"></span>
+				 <ul class="navig">
+					 <li class="active"><a href="/Exam/home">Home</a></li>
+                     <li><a href="/Exam/exam">Exams</a></li>
+					 <li><a href="/Exam/logout">Logout</a></li>
+				 </ul>
+			 </div>
+			 <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$("ul.navig").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+			 <div class="clearfix"></div>
+	 </div>	  
+</div>
+<!---->
+<div class="about-sec">
+	 <div class="container" style="width: 100%">
+		  <div class="about-head">
+			<h2>{{ exam.examname }}</h2>
+
+{#          <a href="hello.java" download>Click</a>#}
+
+              <div class="col-md-12">
+                  <div class="row">
+                      <div class="col-md-8 run-controls">
+                          <label>{{ lab.language }} Program</label>
+                          <a href="" class="run-button">
+                            <img src="{% static 'images/run.png' %}" class="run-img">
+                          </a>
+                          <a href="" class="save-button">
+                            <img src="{% static 'images/save.png' %}" class="run-img">
+                          </a>
+
+                      </div>
+                      <div class="col-md-4 run-outputs">
+                        <label>Output</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                          {{ question.question }}
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-8 code-area">
+                          <input type="text" id="programname" class="form-control" placeholder="Program Name">
+                          <input type="text" id="command" class="form-control" placeholder="Command Line">
+                        <textarea id="code" class="form-control" placeholder="type your program here">{{ stub }}</textarea>
+                      </div>
+                      <input type="hidden" id="language" value="{{ question.exam.lab.language }}">
+                      <input type="hidden" id="question" value="{{ question.pk }}">
+                      <input type="hidden" id="exam" value="{{ question.exam.pk }}">
+                      <div class="col-md-4 code-area">
+                        <textarea id="output" class="form-control" disabled></textarea>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+	</div>
+</div>
+
+<!---->
+<div class="footer">
+	 <div class="container">
+		 <div class="ftr-sec">
+			 <div class="col-md-4 ftr-grid">
+				 <h3>Virtual lab</h3>
+				 <p>At the time of learning languages like C, C++, Java Etc. The beginners had number of
+problem like to install compilers at desktop-pc. Some time student had to face the problem of
+configuring the compiler. So that they can’t get execute the program successfully. And other
+problem is that if the users want to compile program on any other system they require again all
+processing to install and configuration problem.</p>
+				 <p>To solve this problem a python application is
+designed to execute the program on different types of source code by one editor. And also a
+well configured compiler providing services by servers.Simply to create a common server for
+different programming language.To create a common interface for all programming language..</p>
+			 </div>
+			 <div class="col-md-4 ftr-grid2">
+				 <h3>Pages</h3>
+				 <ul>
+					 <li><a href="index.html"><span></span>Home</a></li>
+					 <li><a href="about.html"><span></span>About</a></li>
+					 <li><a href="program.html"><span></span>Programs</a></li>
+					 <li><a href="blog.html"><span></span>Blog</a></li>	
+					 <li><a href="gallery.html"><span></span>Gallery</a></li>
+					 <li><a href="contact.html"><span></span>Contact</a></li>
+				 </ul>
+			 </div>
+			 <div class="col-md-4 ftr-grid3">
+				 <h3>Quick links</h3>
+				 <ul>
+					 <li><a href="about.html"><span></span>History</a></li>
+					 <li><a href="about.html"><span></span>Departments</a></li>
+					 <li><a href="gallery.html"><span></span>Services</a></li>
+					 <li><a href="blog.html"><span></span>Guidances</a></li>	
+					 <li><a href="about.html"><span></span>Team</a></li>
+					 <li><a href="contact.html"><span></span>Contact</a></li>
+				 </ul>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="copywrite">
+	 <div class="container">
+		 <p>Copyright © 2015 University. All rights reserved | Design by Django girls </p>
+	 </div>
+</div>
+<!---->
+</body>
+</html>
